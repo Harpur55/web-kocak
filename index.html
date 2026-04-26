@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <title>Harcode.com</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h1 class="neonText">Selamat Mengikuti Ujian Praktek</h1>
+      <h2 class="neonText">Semoga Sakses</h2>
+
+      <div class="container">
+        <div class="fade-box">
+          <img class="foto" src="/image/kucing kicau.gif" alt="" />
+        </div>
+
+        <audio id="musik" src="music/kicau.mp3"></audio>
+
+        <div class="tombol" id="btnmusic">
+          <button onclick="playMusic()">Klik ini biar semangat</button>
+          <button id="confety" onclick="ledak()">Klik ini Biar ketawa</button>
+        </div>
+
+      <div class="mapel-list">
+
+  <div class="mapel-item">
+    <div class="materi m1" onclick="tampilInformatika()">Informatika</div>
+
+    <div id="list-informatika" class="list-materi">
+      <ul>
+        <li>📄 MS Word</li>
+        <li>📊 MS Excel</li>
+        <li>🎨 Canva</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="materi m2">PAI</div>
+  <div class="materi m3">BTQ</div>
+  <div class="materi m4">IPS</div>
+  <div class="materi m5">Seni Budaya</div>
+
+</div>
+        
+      </div>
+    </div>
+
+    <script>
+      function changeBackgroundColor() {
+        const colors = ["#D8E2DC", "#FFE5D9", "#FFCAD4", "#CDB4DB", "#A2D2FF"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.style.backgroundColor = randomColor;
+      }
+      changeBackgroundColor();
+      setInterval(changeBackgroundColor, 1000);
+    </script>
+   <script>
+  const audio = document.getElementById("musik");
+  const btn = document.querySelector(".tombol button");
+
+  let isPlaying = false;
+
+  function playMusic() {
+    if (!isPlaying) {
+      audio.currentTime = 236; // mulai 3:56
+      audio.play();
+      btn.innerText = "Berhenti Berkicau 🐦";
+      isPlaying = true;
+    } else {
+      audio.pause();
+      btn.innerText = "Klik Disini";
+      isPlaying = false;
+    }
+  }
+
+  // loop dari 3:56 sampai 4:08
+  audio.addEventListener("timeupdate", function () {
+    if (audio.currentTime >= 248) {
+      audio.currentTime = 238;
+      audio.play();
+    }
+  });
+</script>
+    <script>
+      function tampilInformatika() {
+        const list = document.getElementById("list-informatika");
+         console.log("DIKLIK");
+       list.classList.toggle("show");
+      }
+    </script>
+
+  
+<script>
+function ledak() {
+  confetti({
+    spread: 360,
+    ticks: 200,
+    gravity: 1,
+    decay: 0.94,
+    startVelocity: 30,
+    particleCount: 80,
+    scalar: 1.2,
+
+    shapes: ['image'],
+
+    shapeOptions: {
+      image: [{
+        src: './image/sss.jpg', // 🔥 FIX PALING AMAN
+        width: 32,
+        height: 32
+      }]
+    }
+  });
+}
+</script>
+  </body>
+</html>
