@@ -3,15 +3,24 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   text-align: center;
+  background-image: url(image/glitter.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-/* CONTAINER */
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
+.fade-box img {
+  width: 280px;
+  height: 250px;
+  object-fit: cover;
+}
+
 
 /* MAPEL LIST (GRID RESPONSIVE) */
 .mapel-list {
@@ -21,6 +30,7 @@ body {
   width: 90%;
   max-width: 500px;
   margin-top: 20px;
+  margin-bottom: 20px;
 
   align-items: start; /* 🔥 FIX posisi */
 }
@@ -29,6 +39,7 @@ body {
 .mapel-item {
   display: flex;
   flex-direction: column;
+  
 }
 
 /* CARD MAPEL */
@@ -47,6 +58,7 @@ body {
 .m3 { background: linear-gradient(45deg, #51cf66, #8ce99a); }
 .m4 { background: linear-gradient(45deg, #fcc419, #ffe066); color: black; }
 .m5 { background: linear-gradient(45deg, #845ef7, #b197fc); }
+.m6 { background: linear-gradient(45deg, #ff6b6b, #ff9f9f); }
 
 /* HOVER EFFECT */
 .materi:hover {
@@ -122,9 +134,15 @@ body {
     font-size: 14px;
     padding: 10px;
   }
+  .btn2{
+    display: flex;
+    margin-top: 5px;
+    margin-left: 10px;
+    justify-content: center;
+  }
 }
 
-/* TEXT EFFECT */
+
 .neonText {
   color: #fff;
   text-shadow:
@@ -139,6 +157,7 @@ body {
 }
 
 h1 {
+  margin-top: 20px;
   font-size: 30px;
   color: rgb(242, 242, 242);
   margin-top: 20px;
@@ -146,6 +165,8 @@ h1 {
 
 h2 {
   font-size: 25px;
+  text-transform: uppercase;
   color: rgb(184, 39, 39);
   margin-top: 20px;
 }
+

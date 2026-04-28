@@ -23,7 +23,7 @@
 
         <div class="tombol" id="btnmusic">
           <button onclick="playMusic()">Klik ini biar semangat</button>
-          <button id="confety" onclick="ledak()">Klik ini Biar ketawa</button>
+          <button id="confety" onclick="ledak()" class="btn2">Klik ini Biar ketawa</button>
         </div>
 
       <div class="mapel-list">
@@ -44,6 +44,7 @@
   <div class="materi m3">BTQ</div>
   <div class="materi m4">IPS</div>
   <div class="materi m5">Seni Budaya</div>
+  <div class="materi m6">Bahsa Indonesia</div>
 
 </div>
         
@@ -67,7 +68,7 @@
 
   function playMusic() {
     if (!isPlaying) {
-      audio.currentTime = 236; // mulai 3:56
+      audio.currentTime = 236; 
       audio.play();
       btn.innerText = "Berhenti Berkicau 🐦";
       isPlaying = true;
