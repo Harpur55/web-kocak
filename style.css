@@ -1,4 +1,7 @@
-/* RESET */
+
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
+
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -13,14 +16,35 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
-.fade-box img {
-  width: 280px;
-  height: 250px;
-  object-fit: cover;
+
+.fade-box {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
+.fade-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* gambar aktif */
+.fade-box img.active {
+  opacity: 1;
+}
 
 /* MAPEL LIST (GRID RESPONSIVE) */
 .mapel-list {
@@ -34,25 +58,28 @@ body {
   
 }
 
-/* WRAPPER PER MAPEL */
+
 .mapel-item {
   display: flex;
   flex-direction: column;
-  
-}
+  align-items: stretch;
+    font-family: "Changa One", sans-serif;
+  font-weight: 40;
+  font-style: normal;
 
+}
 /* CARD MAPEL */
 .materi {
-  padding: 12px;
-  border-radius: 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
   color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
 /* WARNA MENARIK */
-.m1 { background: linear-gradient(45deg, #ff6b6b, #ff9f9f); }
+.m1 { background: linear-gradient(45deg, #1005ef, #0fff2f); }
 .m2 { background: linear-gradient(45deg, #4dabf7, #74c0fc); }
 .m3 { background: linear-gradient(45deg, #51cf66, #8ce99a); }
 .m4 { background: linear-gradient(45deg, #fcc419, #ffe066); color: black; }
@@ -139,6 +166,45 @@ body {
     margin-left: 10px;
     justify-content: center;
   }
+  .instagram {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .tombol button {
+    width: 100%;
+    margin-top: 10px;
+  }
+   .tombol {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+}
+.instgram {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease;
+  border: none;
+}
+
+.instgram:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.05);
+}
+
+.instgram:active {
+  transform: scale(0.98);
 }
 
 
@@ -169,3 +235,33 @@ h2 {
   margin-top: 20px;
 }
 
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-size: 14px;
+
+  border-top: 1px solid rgba(255,255,255,0.2);
+
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+}
+
+/* efek neon text */
+.footer p {
+  margin: 0;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #b114dc,
+    0 0 20px #0fa;
+}
+
+/* animasi glow halus */
+.footer:hover {
+  box-shadow: 0 -5px 30px rgba(0,255,170,0.5);
+  transition: 0.3s;
+}
