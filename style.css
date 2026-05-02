@@ -265,3 +265,26 @@ h2 {
   box-shadow: 0 -5px 30px rgba(0,255,170,0.5);
   transition: 0.3s;
 }
+
+.list-materi {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.list-materi.show {
+  opacity: 1;
+  max-height: 300px;
+}
+
+.list-excel a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.list-excel a:hover {
+  color: #00ffcc;
+  text-shadow: 0 0 5px #00ffcc;
+}

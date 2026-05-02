@@ -12,13 +12,16 @@
   <body>
     <div class="wrapper">
       <h1 class="neonText">Selamat Mengikuti Ujian Praktek</h1>
-      <h3 class="neonText">Siswa & Siswi <br> SMP IBNU SYINA CILEUNGSI </h3>
+      <h3 class="neonText">
+        Siswa & Siswi <br />
+        SMP IBNU SYINA CILEUNGSI
+      </h3>
       <h2 class="neonText">Semoga Sakses</h2>
 
       <div class="container">
         <div class="fade-box">
           <img class="foto" src="/image/kucing kicau.gif" alt="" />
-          <img class="gambar2" src="/image/sss.jpg" alt="">
+          <img class="gambar2" src="/image/sss.jpg" alt="" />
         </div>
 
         <audio id="musik" src="music/kicau.mp3"></audio>
@@ -28,18 +31,32 @@
           <button id="confety" onclick="ledak()" class="btn2">
             Klik ini Biar ketawa
           </button>
-         <a class="instgram" href="https://www.instagram.com/hari_purnomo13/" target="_blank">
-  jangan lupa follow
-</a>
+          <a
+            class="instgram"
+            href="https://www.instagram.com/hari_purnomo13/"
+            target="_blank"
+          >
+            jangan lupa follow
+          </a>
         </div>
 
         <div class="mapel-list">
-          <div class="mapel-item">
+          <div class="mapel-item" onclick="toggleMateri(this)">
             <div class="materi m2">PAI</div>
           </div>
-          <div class="mapel-item">
-            <div class="materi m1">Informatika</div>
-          </div>
+          <div class="mapel-item" onclick="toggleMateri(this)">
+  <div class="materi m1">Informatika</div>
+
+  <div class="list-materi">
+    <ul>
+      <li>Ms Word</li>
+      <li class="list-excel">
+        <a href="https://belajarexcel.id/#google_vignette" target="_blank">Ms Excel</a>
+      </li>
+      <li>Desain poster canva</li>
+    </ul>
+  </div>
+</div>
 
           <div class="mapel-item">
             <div class="materi m3">BTQ</div>
@@ -56,15 +73,13 @@
           <div class="mapel-item">
             <div class="materi m6">Bahasa Indonesia</div>
           </div>
-
-       
         </div>
       </div>
     </div>
 
     <div class="footer">
-  <p>© 2026 Harpur.com | Made with ❤️ by Hari</p>
-</div>
+      <p>© 2026 Harpur.com |Guru Informatika handsome | Made with ❤️ by Hari</p>
+    </div>
     <script>
       function changeBackgroundColor() {
         const colors = ["#D8E2DC", "#FFE5D9", "#FFCAD4", "#CDB4DB", "#A2D2FF"];
@@ -136,25 +151,38 @@
     </script>
 
     <script>
-  const images = document.querySelectorAll(".fade-box img");
-  let index = 0;
+      const images = document.querySelectorAll(".fade-box img");
+      let index = 0;
 
-  function gantiGambar() {
-  
-    images.forEach(img => img.classList.remove("active"));
+      function gantiGambar() {
+        images.forEach((img) => img.classList.remove("active"));
 
-    
-    images[index].classList.add("active");
+        images[index].classList.add("active");
 
-    // pindah ke berikutnya
-    index = (index + 1) % images.length;
-  }
+        // pindah ke berikutnya
+        index = (index + 1) % images.length;
+      }
 
-  // jalankan pertama kali
-  gantiGambar();
+      // jalankan pertama kali
+      gantiGambar();
 
-  // ganti tiap 2 detik
-  setInterval(gantiGambar, 1500);
-</script>
+      // ganti tiap 2 detik
+      setInterval(gantiGambar, 1500);
+    </script>
+
+    <script>
+      function toggleMateri(element) {
+  const all = document.querySelectorAll(".list-materi");
+
+  all.forEach(item => {
+    if (item !== element.querySelector(".list-materi")) {
+      item.classList.remove("show");
+    }
+  });
+
+  const list = element.querySelector(".list-materi");
+  list.classList.toggle("show");
+}
+    </script>
   </body>
 </html>
