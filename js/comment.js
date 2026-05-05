@@ -1,22 +1,43 @@
 
-function kirimKomentar() {
   const input = document.getElementById("inputKomentar");
   const list = document.getElementById("listKomentar");
 
-  const teks = input.value.trim();
+  // ambil data dari localStorage saat pertama load
+  document.addEventListener("DOMContentLoaded", tampilkanKomentar);
 
-  if (teks === "") {
-    alert("Komentar tidak boleh kosong!");
-    return;
+  function kirimKomentar() {
+    const teks = input.value.trim();
+
+    if (!teks) {
+      alert("Komentar tidak boleh kosong!");
+      return;
+    }
+
+    // ambil data lama
+    let komentar = JSON.parse(localStorage.getItem("komentar")) || [];
+
+    // tambah komentar baru (di depan)
+    komentar.unshift(teks);
+
+    // simpan lagi
+    localStorage.setItem("komentar", JSON.stringify(komentar));
+
+    // tampilkan ulang
+    tampilkanKomentar();
+
+    // reset input
+    input.value = "";
   }
 
-  const komentarBaru = document.createElement("div");
-  komentarBaru.classList.add("item-komentar");
-  komentarBaru.innerText = teks;
+  function tampilkanKomentar() {
+    const data = JSON.parse(localStorage.getItem("komentar")) || [];
 
-  list.prepend(komentarBaru);
+    list.innerHTML = ""; // kosongkan dulu
 
-  input.value = "";
-
-  alert("Terima kasih atas komentarnya!");
-}
+    data.forEach(teks => {
+      const div = document.createElement("div");
+      div.className = "item-komentar";
+      div.textContent = teks;
+      list.appendChild(div);
+    });
+  }
