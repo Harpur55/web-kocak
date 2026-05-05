@@ -1,43 +1,49 @@
 
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmB9NmSnBw15G4n9sLeUJZ5NJrWq0KgQw",
+    authDomain: "funny-website-4b19b.firebaseapp.com",
+    databaseURL: "https://funny-website-4b19b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "funny-website-4b19b",
+    storageBucket: "funny-website-4b19b.firebasestorage.app",
+    messagingSenderId: "1083608674104",
+    appId: "1:1083608674104:web:e7a2226b5d4b670689dbcd"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
   const input = document.getElementById("inputKomentar");
   const list = document.getElementById("listKomentar");
-
-  // ambil data dari localStorage saat pertama load
-  document.addEventListener("DOMContentLoaded", tampilkanKomentar);
 
   function kirimKomentar() {
     const teks = input.value.trim();
 
     if (!teks) {
-      alert("Komentar tidak boleh kosong!");
+      alert("Komentar kosong!");
       return;
     }
 
-    // ambil data lama
-    let komentar = JSON.parse(localStorage.getItem("komentar")) || [];
+    db.ref("komentar").push({
+      isi: teks,
+      waktu: new Date().toLocaleString()
+    });
 
-    // tambah komentar baru (di depan)
-    komentar.unshift(teks);
-
-    // simpan lagi
-    localStorage.setItem("komentar", JSON.stringify(komentar));
-
-    // tampilkan ulang
-    tampilkanKomentar();
-
-    // reset input
     input.value = "";
   }
 
-  function tampilkanKomentar() {
-    const data = JSON.parse(localStorage.getItem("komentar")) || [];
+  db.ref("komentar").on("value", snapshot => {
+    list.innerHTML = "";
+    const data = snapshot.val();
 
-    list.innerHTML = ""; // kosongkan dulu
+    for (let id in data) {
+      const item = data[id];
 
-    data.forEach(teks => {
       const div = document.createElement("div");
       div.className = "item-komentar";
-      div.textContent = teks;
-      list.appendChild(div);
-    });
-  }
+      div.innerHTML = `<b>${item.waktu}</b><br>${item.isi}`;
+
+      list.prepend(div);
+    }
+  });
