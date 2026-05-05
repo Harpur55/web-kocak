@@ -356,3 +356,77 @@ h2 {
   max-width: 260px;
   text-align: center;
 }
+
+.comment-box {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+  backdrop-filter: blur(8px);
+}
+
+.comment-box h2 {
+  margin-bottom: 10px;
+   font-size: 20px;
+  color: #00ffcc;
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+/* textarea */
+.comment-box textarea {
+  width: 85%;
+  height: 80px;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  resize: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+/* tombol */
+.comment-box button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #00c853;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.comment-box button:hover {
+  background: #00e676;
+}
+
+
+
+/* list komentar */
+.list-komentar {
+  margin-top: 15px;
+}
+
+/* item komentar */
+.item-komentar {
+  background: rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  animation: muncul 0.4s ease;
+}
+
+/* animasi muncul */
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

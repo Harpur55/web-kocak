@@ -1,183 +1,105 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <title>Harcode.com</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-  <body>
-    <div class="wrapper">
-      <h1 class="neonText">Selamat Mengikuti Ujian Praktek</h1>
-      <h3 class="neonText">
-        SISWA & SISWI <br />
-        SMP IBNU SYINA CILEUNGSI
-      </h3>
-      <h2 class="neonText">Semoga Sakses</h2>
+  <title>Harcode.com</title>
+</head>
 
-      <div class="container">
-        <div class="fade-box">
-          <img class="foto" src="/image/kucing kicau.gif" alt="" />
-          <img class="gambar2" src="/image/sss.jpg" alt="" />
-        </div>
+<body>
+  <div class="wrapper">
+    <h1 class="neonText">Selamat Mengikuti Ujian Praktek</h1>
+    <h3 class="neonText">
+      SISWA & SISWI <br />
+      SMP IBNU SYINA CILEUNGSI
+    </h3>
+    <h2 class="neonText">Semoga Sakses</h2>
 
-        <audio id="musik" src="music/kicau.mp3"></audio>
-        <p class="note">*jangan lupa kencangkan volume</p>
-
-        <div class="tombol" id="btnmusic">
-          <div class="button-group">
-          <button onclick="playMusic()">Klik ini biar semangat</button>
-        
-          </div>
-          <button id="confety" onclick="ledak()" class="btn2">
-            Klik ini Biar ketawa
-          </button>
-          <a
-            class="instgram"
-            href="https://www.instagram.com/hari_purnomo13/"
-            target="_blank"
-          >
-            jangan lupa follow
-          </a>
-        </div>
-
-        <div class="mapel-list">
-          <div class="mapel-item" onclick="toggleMateri(this)">
-            <div class="materi m2">PAI</div>
-          </div>
-          <div class="mapel-item" onclick="toggleMateri(this)">
-  <div class="materi m1">Informatika</div>
-
-  <div class="list-materi">
-    <ul>
-      <li>Ms Word</li>
-      <li class="list-excel">
-        <a href="https://belajarexcel.id/#google_vignette" target="_blank">Ms Excel</a>
-      </li>
-      <li class="list-canva"   id="materi-canva">Desain poster canva
-        <li>Membuat poster Promosi Sekolah</li>
-      </li>
-
-      </li>
-    </ul>
-  </div>
-</div>
-
-          <div class="mapel-item">
-            <div class="materi m3">BTQ</div>
-          </div>
+    <div class="container">
+      <div class="fade-box">
+        <img class="foto" src="/image/kucing kicau.gif" alt="" />
+        <img class="gambar2" src="/image/sss.jpg" alt="" />
       </div>
+
+      <audio id="musik" src="music/kicau.mp3"></audio>
+      <p class="note">*jangan lupa kencangkan volume</p>
+
+      <div class="tombol" id="btnmusic">
+        <div class="button-group">
+          <button onclick="playMusic()">Klik ini biar semangat</button>
+
+        </div>
+        <button id="confety" onclick="ledak()" class="btn2">
+          Klik ini Biar ketawa
+        </button>
+        <a class="instgram" href="https://www.instagram.com/hari_purnomo13/" target="_blank">
+          jangan lupa follow
+        </a>
+      </div>
+
+      <div class="mapel-list">
+        <div class="mapel-item" onclick="toggleMateri(this)">
+          <div class="materi m2">PAI</div>
+        </div>
+        <div class="mapel-item" onclick="toggleMateri(this)">
+          <div class="materi m1">Informatika</div>
+
+          <div class="list-materi">
+            <ul>
+              <li>Ms Word</li>
+              <li class="list-excel">
+                <a href="https://belajarexcel.id/#google_vignette" target="_blank">Ms Excel</a>
+              </li>
+              <li class="list-canva" id="materi-canva">Desain poster canva
+              <li>Membuat poster Promosi Sekolah</li>
+              </li>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mapel-item">
+          <div class="materi m3">BTQ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comment-box">
+      <h2>Komentar</h2>
+
+      <textarea id="inputKomentar" placeholder="Tulis komentar kamu disini..."></textarea>
+
+      <button onclick="kirimKomentar()">Kirim Komentar</button>
+
+
+      <div id="listKomentar" class="list-komentar"></div>
     </div>
 
     <div class="footer">
       <p>© 2026 Harpur.com |Guru Informatika handsome | Made with ❤️ by Hari</p>
     </div>
-    <script>
-      function changeBackgroundColor() {
-        const colors = ["#D8E2DC", "#FFE5D9", "#FFCAD4", "#CDB4DB", "#A2D2FF"];
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        document.body.style.backgroundColor = randomColor;
-      }
-      changeBackgroundColor();
-      setInterval(changeBackgroundColor, 1000);
-    </script>
-    <script>
-      const audio = document.getElementById("musik");
-      const btn = document.querySelector(".tombol button");
 
-      let isPlaying = false;
+    <script src="js/changeImage.js"></script>
+    <script src="js/conveti.js"></script>
+    <script src="js/togle.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="/js/playMusic.js"></script>
+   
+   
+    
 
-      function playMusic() {
-        if (!isPlaying) {
-          audio.currentTime = 236;
-          audio.play();
-          btn.innerText = "Berhenti Berkicau 🐦";
-          isPlaying = true;
-        } else {
-          audio.pause();
-          btn.innerText = "Klik Disini";
-          isPlaying = false;
-        }
-      }
+    
+   
 
-      // loop dari 3:56 sampai 4:08
-      audio.addEventListener("timeupdate", function () {
-        if (audio.currentTime >= 248) {
-          audio.currentTime = 238;
-          audio.play();
-        }
-      });
-    </script>
-    <script>
-      function tampilInformatika() {
-        const list = document.getElementById("list-informatika");
-        console.log("DIKLIK");
-        list.classList.toggle("show");
-      }
-    </script>
+  
+    
 
-    <script>
-      function ledak() {
-        confetti({
-          spread: 360,
-          ticks: 200,
-          gravity: 1,
-          decay: 0.94,
-          startVelocity: 30,
-          particleCount: 80,
-          scalar: 1.2,
 
-          shapes: ["image"],
+</body>
 
-          shapeOptions: {
-            image: [
-              {
-                src: "./image/sss.jpg", // 🔥 FIX PALING AMAN
-                width: 32,
-                height: 32,
-              },
-            ],
-          },
-        });
-      }
-    </script>
-
-    <script>
-      const images = document.querySelectorAll(".fade-box img");
-      let index = 0;
-
-      function gantiGambar() {
-        images.forEach((img) => img.classList.remove("active"));
-
-        images[index].classList.add("active");
-
-        // pindah ke berikutnya
-        index = (index + 1) % images.length;
-      }
-
-      // jalankan pertama kali
-      gantiGambar();
-
-      // ganti tiap 2 detik
-      setInterval(gantiGambar, 1500);
-    </script>
-
-    <script>
-      function toggleMateri(element) {
-  const all = document.querySelectorAll(".list-materi");
-
-  all.forEach(item => {
-    if (item !== element.querySelector(".list-materi")) {
-      item.classList.remove("show");
-    }
-  });
-
-  const list = element.querySelector(".list-materi");
-  list.classList.toggle("show");
-}
-    </script>
-  </body>
 </html>
